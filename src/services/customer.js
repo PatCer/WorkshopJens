@@ -50,3 +50,9 @@ function validateCustomerId(customerId, customers){
 };
 
 export {getCustomers, readCustomers, createCustomer, deleteCustomer, customers};
+
+export async function routes (fastify, options) {
+    fastify.get('/', async (request, reply) => {
+      // do something ´
+    });
+  }
