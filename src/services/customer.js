@@ -26,7 +26,7 @@ function createCustomer(firstname,lastname,email,customerId){
     }
 };
 
-function readCustomers(customerId, customers){
+function getCustomer(customerId, customers){
     const customer = customers.filter((Customer) => Customer.customerId === customerId);
     return customer;
 };
@@ -49,7 +49,7 @@ function validateCustomerId(customerId, customers){
     }
 };
 
-export {getCustomers, readCustomers, createCustomer, deleteCustomer, customers};
+export {getCustomers, getCustomer, createCustomer, deleteCustomer, customers};
 
 export async function routes (fastify, options) {
     fastify.get('/', async (request, reply) => {
