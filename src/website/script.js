@@ -1,19 +1,17 @@
-import cors from '@fastify/cors'
 
-fastify.register(cors, {
-  origin: '*'
-});
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch("http://localhost:3000/customers");
     if (response.ok) {
       const data = await response.json();
+      console.log(data)
       data.forEach((customer) => {
         createCustomerCard(customer);
       });
     }
   });
+  
 
 
   function createCustomerCard(customer) {
@@ -22,10 +20,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     customerTr.classList.add("customer-card");
   
     customerTr.innerHTML = `
-        <li>${customer.firstName}</li>
-        <li>${customer.lastName}</li>
-        <li>${customer.email}</li>
-        <li>${customer.customerId}</li>
+      <tr>
+        <td>${customer.firstName}</td>
+        <td>${customer.lastName}</td>
+        <td>${customer.email}</td>
+        <td>${customer.customerId}</td>
+      </tr>
     `;
     customersList.appendChild(customerTr);
   }

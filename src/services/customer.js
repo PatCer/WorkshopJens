@@ -1,7 +1,14 @@
 import Fastify from 'fastify'
+import cors from '@fastify/cors'
+
 const fastify = Fastify({
   logger: true
 })
+
+fastify.register(cors, {
+  origin: '*'
+});
+
 
 
 class Customer{
@@ -28,7 +35,7 @@ function createCustomer(firstname,lastname,email,customerId){
         return customers;
     }
     else{
-        throw new TypeError
+        throw new Error;
     }
 };
 
@@ -116,7 +123,7 @@ fastify.post('/customers', customerSchema, async function createCustomers (reque
     }
     catch{
         reply.statusCode = 400
-        return 'CustomerId is in wrong schema'
+        return 'CustomerId is in wrong or already exsists'
     }
 })
 fastify.delete('/customers/:id', async function deleteCustomers (request, reply){
