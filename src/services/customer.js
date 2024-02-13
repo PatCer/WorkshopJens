@@ -1,3 +1,9 @@
+import Fastify from 'fastify'
+const fastify = Fastify({
+  logger: true
+})
+
+
 class Customer{
     constructor(firstName,lastName,email,customerId){
         this.firstName = firstName;
@@ -19,22 +25,20 @@ function createCustomer(firstname,lastname,email,customerId){
     if (validateCustomerId(customerId,customers)){  
         const customer = new Customer(firstname,lastname,email,customerId);
         customers.push(customer);
-        return customer;
+        return customers;
     }
     else{
-        console.log("Invalid ID")
+        throw new TypeError
     }
 };
 
 function getCustomer(customerId, customers){
-    const customer = customers.filter((Customer) => Customer.customerId === customerId);
-    return customer;
+    return customers.filter((Customer) => Customer.customerId === customerId);
 };
 
 function deleteCustomer(customerId,customers){
-    const element = readCustomers(customerId, customers);
+    const element = getCustomer(customerId, customers);
     customers.splice(element, 1);
-    return element;
 };
 
 function validateCustomerId(customerId, customers){
@@ -49,10 +53,82 @@ function validateCustomerId(customerId, customers){
     }
 };
 
+
+createCustomer("harry","harrald","beispiel@mail.de","ETUR-CN-34622");
+createCustomer("harry2","harrald","beispiel@mail.de","ETUR-CN-34623");
+
+const customerSchema = {
+    schema: {
+      body: {
+        type: 'object',
+        properties: {
+          firstname: { type: 'string', minLength: 2 },
+          lastname: { type: 'string', minLength: 2 },
+          email: {type: 'string', minLength: 6},
+          customerId: { type: 'string', minLength: 8},
+        },
+        required: ['firstname', 'lastname', 'email', 'customerId']
+      }
+    }
+}
+
+
+
+const responseArraySchema = {
+    schema: {
+      response: {
+        200: {
+          type: 'array',
+          items: {
+            type: 'object',
+            properties: {
+            firstName: { type: 'string', minLength: 2 },
+            lastName: { type: 'string', minLength: 2 },
+            email: {type: 'string', minLength: 6},
+            customerId: { type: 'string', minLength: 8},
+            }
+          }
+        }
+      }
+    }
+  }
+
+
 export {getCustomers, getCustomer, createCustomer, deleteCustomer, customers};
 
 export async function routes (fastify, options) {
     fastify.get('/', async (request, reply) => {
-      // do something ´
     });
   }
+
+
+
+// Declare a route
+fastify.get('/customers',responseArraySchema , async function getCustomers (request, reply) {
+    return customers;
+  })
+fastify.get('/customers/:Id', async (request, reply ) => {  
+    return getCustomer(request.params.Id, customers);
+})
+fastify.post('/customers', customerSchema, async function createCustomers (request, reply){
+    try{
+        createCustomer(request.body.firstname,request.body.lastname,request.body.email,request.body.customerId)    
+    }
+    catch{
+        reply.statusCode = 400
+        return 'CustomerId is in wrong schema'
+    }
+})
+fastify.delete('/customers/:id', async function deleteCustomers (request, reply){
+    const { id } = request.params;
+    return deleteCustomer(id,customers);
+})
+  
+  // Other code...
+fastify.register(routes);
+try {
+    await fastify.listen({ port: 3000 })
+} catch (err) {
+    fastify.log.error(err)
+    process.exit(1)
+}
