@@ -15,7 +15,7 @@ if (response.ok) {
     });
 
 
-    var table = document.getElementById('raport-table');
+    var table = document.getElementById('report-table');
 
     var rows = table.getElementsByTagName('tr');
     for (var i = 0; i < rows.length; i++) {
@@ -58,6 +58,23 @@ if (response.ok) {
   
 
 
+
+function createTableHeader(report) {
+    const reportList = document.getElementById("report-table");
+    const reportTr = document.createElement("tr");
+    reportTr.classList.add("report-card");
+    
+    reportTr.innerHTML = `
+        <tr>
+        <td>Report ID</td>
+        <td>Customer ID</td>
+        <td>Category</td>
+        <td>Label</td>
+        <td>Status</td>
+        </tr>
+    `;
+    reportList.appendChild(reportTr);
+    }
 
 function createReportCard(report) {
 const reportList = document.getElementById("report-table");
