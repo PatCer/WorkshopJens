@@ -1,22 +1,40 @@
 <html>
     <head>
-        <title>
-            Design
-        </title>
-        <script src="../create_customer_script.js"></script>
-        <link rel="stylesheet" href="../css/create_customer.css"/>
+        <title> ETUR</title>
+        <link rel="stylesheet" href="../css/contact-box.css">
     </head>
     <body>
-        <div class="contact-box">
-            <form id = "formid">
-                <h3><strong>Create Customer</strong></h3>
-                <input type="text" class="firstname-field" id= "firstname-field" placeholder="First name" name="firstname-field">
-                <input type="text" class="lastname-field" id= "lastname-field" placeholder="Last name" name = "lastname-field">
-                <input type="email" class="input-field" id= "email-field" placeholder="Your email" name = "email-field">
-                <input type="customerId" class="input-field" id= "customerid-field" placeholder="Your email" name = "customerid-field">
-                
-                    <button type="button" class="btn" id= "btn">Create</button>
-            </form>
+        <div class="banner">
+            <div class="navbar_background">
+
+                <div class="navbar">
+                    <img src="../../../Doc/PlanB_Logo_RGB_noClaim.webp" class="logo">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li><a href="#"><strong>CREATE CUSTOMER</strong></a></li>  
+                        <li><a href="#">SHOW CUSTOMER</a></li>
+                        <li><a href="#">CREATE REPORT</a></li>
+                        <li><a href="#">SHOW REPORT</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <h1>CREATE A NEW CUSTOMER</h1>
+                <p><h2>Bitte geben Sie Ihre Daten an</h2></p>
+            </div>
+                <div class="contact-box">
+                    <form>
+                        <input type="text" class="firstname-field" placeholder="First name">
+                        <input type="text" class="lastname-field" placeholder="Last name">
+                        <input type="text" class="input-field" placeholder="Customer Number">
+                        <input type="email" class="input-field" placeholder="Your email">
+                        
+                        <div>
+                            <button type="button"><span></span>CREATE CUSTOMER</button>
+                        </div>
+
+                    </form>
+                </div>
         </div>
     </body>
 </html>

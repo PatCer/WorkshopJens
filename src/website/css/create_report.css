@@ -47,11 +47,11 @@
     color: #fff;
     text-transform: uppercase;
   }
-  
+
   .navbar ul li a strong{
     color: orangered; 
   }
-  
+
   .navbar ul li::after{
     content: '';
     height: 3px;
@@ -70,7 +70,7 @@
   .content{
     width: 100%;
     position: absolute;
-    top: 50%;
+    top: 17%;
     transform: translateY(-50%);
     text-align: center;
     color:#fff;
@@ -91,7 +91,98 @@
     color: rgb(185, 49, 0);
   }
   
-  button{
+.contact-box
+{
+  
+    width: 500px;
+    background-color: #282828c8;
+    box-shadow: 0 0 20px 0 orangered;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+form
+{
+    margin: 35px; 
+}
+.firstname-field
+{
+    
+    background-color: #ffffffc5;
+    width: 45%; 
+    height: 40px;
+    margin-top: 20px; 
+    margin-right: 20px;
+    padding-left: 10px;
+    border: 1px solid #777;
+    border-radius: 14px;
+    outline: none;    
+}
+.lastname-field
+{
+    background-color: #ffffffc5;
+    width: 48.5%; 
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 10px;
+    border: 1px solid #777;
+    border-radius: 14px;
+    outline: none;    
+}  
+
+.customer_id{
+    background-color: #ffffffc5;
+    width: 100%; 
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 10px;
+    border: 1px solid #777;
+    border-radius: 14px;
+    outline: none;
+}
+
+.description{
+    background-color: #ffffffc5;
+    width: 100%; 
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 10px;
+    border: 1px solid #777;
+    border-radius: 14px;
+    outline: none;
+}
+
+
+.input-field
+{
+    background-color: #ffffffc5;
+    width: 100%; 
+    height: 40px;
+    margin-top: 20px;
+    padding-left: 10px;
+    border: 1px solid #777;
+    border-radius: 14px;
+    outline: none;
+}
+
+.description{
+    background-color: #ffffffc5;
+    width: 100%; 
+    height: 100px;
+    padding-top: 10px;
+    margin-top: 20px;
+    padding-left: 10px;
+    border: 1px solid #777;
+    border-radius: 14px;
+    outline: none;
+
+}
+
+
+/* BUTTON NOCH IN DIE MITTE MACHEN*/
+
+button{
     width: 200px;
     padding: 15px 0;
     text-align: center;
@@ -105,11 +196,6 @@
     position: relative;
     overflow: hidden;
   
-  }
-  
-  button a{
-    color:#fff;
-    text-decoration: none;
   }
   
   span{
@@ -132,117 +218,3 @@
   button:hover{
     border: none;
   }
-
-  section.active .devButton{
-    display: none;
-
-
-  }
-
-  .overlay{
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0,0,0,0.5);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  section.active .overlay{
-    opacity: 1;
-    pointer-events: auto;
-
-  }
-
-  
-  .modal-box{
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      width: 50%;
-      height: 35vh;
-      border-radius: 14px;
-      background-color:#282828 !important;
-      box-shadow: 0 0 20px 0 orangered; 
-      transition: 1s;
-      transform: translate(-50%, -50%) scale(0);
-      position: absolute;
-      left: 50%;
-      top: 45%
-    }
-    
-    .modal-box.active{
-      transition: 1s;
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-  .modal-box h2{
-    margin-top: 16px;
-    font-weight: 400;
-    color: #ffffff;
-    text-align: center;
-  }
-
-  .modal-box h3{
-    margin-top: 16px;
-    font-weight: 400;
-    color: #ffffff;
-    text-align: center;
-  }
-
-  .ID-Field
-{
-    
-    background-color: #ffffffc5;
-    width: 45%; 
-    height: 40px;
-    margin-top: 20px; 
-    margin-right: 0.px;
-    padding-left: 10px;
-    border: 1px solid #777;
-    border-radius: 14px;
-    outline: none;    
-}
-
-  .modal-box button{
-    width: 200px;
-    padding: 15px 0;
-    text-align: center;
-    margin: 20px 10px;
-    border-radius: 25px;
-    font-weight: bold;
-    border: 2px solid orangered;
-    background: transparent;
-    color: #fff;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  
-  }
-  
-  .modal-box button a{
-    color:#fff;
-    text-decoration: none;
-  }
-  
-  .modalbox span{
-    background: orangered;
-    height: 100%;
-    width: 0;
-    border-radius: 25px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    z-index: -1;
-    transition: 0.5s;
-  }
-  
-  .modal-box button:hover span{
-    width: 100%;
-  
-  }
-  
-.modal-box button:hover{
-    border: none;
-  }
-  

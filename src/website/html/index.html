@@ -1,37 +1,63 @@
-<!DOCTYPE html>
-<header>
-    <link rel="stylesheet" href="../css/index.css"/>
-    <nav>
-        <div class="container">
-            <div>
-                <!---LOGO KOMMT NOCH REiN WENN WIR EIN PASSENDENS FINDEN-->
-                <img src="UNSER LOGO" class="LOGO"/>
-                <div class="menu">
-                    <ul>
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="Create_Customer.html"> Create Customer</a>
-                        </li>
-                        <li>
-                            <a href="Show_Customer.html">Show Customer</a>
-                        </li>
-                        <li>
-                            <a href="Send_Report.html">Send Report</a>
-                        </li>
-                    </ul>
-                </div>
+<html>
+
+<head>
+    <title> ETUR</title>
+    <link rel="stylesheet" href="../css/index.css">
+
+</head>
+
+<body>
+    <div class="banner">
+        <div class="navbar_background">
+
+            <div class="navbar">
+                <img src="../../../Doc/PlanB_Logo_RGB_noClaim.webp" class="logo">
             </div>
         </div>
-    </nav>
+        <div class="content">
+            <h1>Welcome</h1>
+            <p>
+            <h2>Bitte wählen Sie Ihren Status aus </h2>
+            </p>
 
-    <div class="content">
-        <small>Patrik, ????, Sascha</small>
-        <h1> ETUR</h1>
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
+            <div>
+                <button type="button"><span></span><a href="create_customer.html">CUSTOMER</a> </button>
+                <section>
+                    <button onclick="togglePopup()"><span></span>DEVELOPER</button>
+                    <span class="overlay"></span>
+                </section>
+               
+                <button type="button"><span></span>PRODUCTMANAGER</button>
+            </div>
+        </div>
     </div>
-</header>
 
+    <div class="modal-box" id="modal-boxID">
+
+        <h2>DEVELOPER</h2>
+        <h3>Please enter your ID</h3>
+        <input type="text" class="ID-Field" placeholder="Your ID">
+        <button type="button" class="enter"><span></span>Enter</button>
+    </div>
+
+    <script>
+        const section = document.querySelector("section"),
+            overlay = document.querySelector(".overlay"),
+            devButton = document.querySelector(".devButton"),
+            enter = document.querySelector(".enter");
+
+        function togglePopup() {
+            console.log("button pressed!")
+            document.getElementById("modal-boxID").classList.toggle("active");
+        };
+
+        overlay.addEventListener("click", () =>
+            section.classList.remove("active"));
+
+        enter.addEventListener("click", () =>
+            section.classList.remove("active"));
+    </script>
+
+</body>
+
+</html>
