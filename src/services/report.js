@@ -18,6 +18,15 @@ export class Report {
     }
 };
 
+export class Comment{
+    constructor(author, text, createdAt, type){
+        this.author = author;
+        this.text = text;
+        this.createdAt = createdAt;
+        this.type = type;
+    }
+}
+
 export const reports = [];
 
 function generateRandomId() {
@@ -36,7 +45,7 @@ export function createNewReport(category, customerId, description, labels, owner
     do{
         const id = generateRandomId();
         if (reports.some((Report) => Report.id === id)){
-            const report = new Report(id,category, customerId, description, labels, owner,'-',Date.now,'-','-',state,'-','-','-',references);
+            const report = new Report(id,category, customerId, description, labels, owner,'-',new Date(),'-','-',state,'-',['-'],'-',references);
             reports.push(report);
             return
         }
@@ -45,14 +54,18 @@ export function createNewReport(category, customerId, description, labels, owner
 
 export function changeReport(id ,labels ,assignedTo ,state, priority, comments, closeReason, references){   
     getReport(id).labels.push(labels);
-    getReport(id).comments.push(comments);
     getReport(id).references.push(references);
     getReport(id).assignedTo = assignedTo;
     getReport(id).state = state;
     getReport(id).priority = priority;
     getReport(id).closeReason = closeReason;
-    const currentTimestamp = Date.now();
+    const currentTimestamp = new Date();
     getReport(id).editedAt = currentTimestamp;
+}
+
+export function addComment(newComment){
+    newComment.createdAt = new Date();
+    getReport(id).comments.push(newComment)
 }
 
 export function getReport(id){
@@ -89,8 +102,18 @@ export const customerSchema = {
     }
 }
 
+const comments = []
+const comments2 = []
+const comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
+comment.push(comment);
+comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
+comment.push(comment);
+comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
+comment2.push(comment);
+comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
+comment2.push(comment);
 
-const report = new Report(1,'Bug', 'ETUR-CN-34623', 'hallo, alles kaputt', ['drei lable'],'me' , 'Patrik', 'jetzt', 'Jetzt plus 5 min', 'noch nicht', 'in Bearbeitung', 1, ['Isch Kaputt','Isch wirklich Kaputt'], 'none', ['wikipedia.de/idunno']);
-const report2 = new Report(3,'Bug2', 'ETUR-CN-34623', 'hallo, alles kaputt', ['zwei lable'],'me' , 'Patrik', 'jetzt', 'Jetzt plus 5 min', 'noch nicht', 'in Bearbeitung', 1, ['Isch Kaputt','Isch wirklich Kaputt'], 'none', ['wikipedia.de/idunno']);
+const report = new Report(1,'Bug', 'ETUR-CN-34623', 'hallo, alles kaputt', ['drei lable'],'me' , 'Patrik', 'jetzt', 'Jetzt plus 5 min', 'noch nicht', 'in Bearbeitung', 1, comments, 'none', ['wikipedia.de/idunno']);
+const report2 = new Report(3,'Bug2', 'ETUR-CN-34623', 'hallo, alles kaputt', ['zwei lable'],'me' , 'Patrik', 'jetzt', 'Jetzt plus 5 min', 'noch nicht', 'in Bearbeitung', 1, comments2, 'none', ['wikipedia.de/idunno']);
 reports.push(report);
 reports.push(report2);
