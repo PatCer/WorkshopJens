@@ -10,6 +10,7 @@ const response = await fetch("http://localhost:3000/report");
 if (response.ok) {
     const data = await response.json();
     console.log(data)
+    createTableHeader();
     data.forEach((report) => {
     createReportCard(report);
     });
@@ -59,7 +60,7 @@ if (response.ok) {
 
 
 
-function createTableHeader(report) {
+function createTableHeader() {
     const reportList = document.getElementById("report-table");
     const reportTr = document.createElement("tr");
     reportTr.classList.add("report-card");
@@ -87,7 +88,7 @@ reportTr.innerHTML = `
     <td>${report.customerId}</td>
     <td>${report.category}</td>
     <td>${report.labels}</td>
-    <td>${report.status}</td>
+    <td>${report.state}</td>
     </tr>
 `;
 reportList.appendChild(reportTr);
