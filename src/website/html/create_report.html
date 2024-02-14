@@ -21,7 +21,8 @@
                 <div class="contact-box">
                     <form>
                         <div class="radio_btn">
-                            <input type="customerID" class="customer_id" placeholder="Customer ID">
+                            <input name="customerId-field" id="customerId-field"type="customerID" class="customer_id" placeholder="Customer ID">
+
                             <input type="radio" id="feedback" name="kategorie" value="feedback">
                             <label for="feedback">Feedback</label>
                             <input type="radio" id="issue" name="kategorie" value="issue">
@@ -30,12 +31,12 @@
                             <label for="question">Question</label>
                         </div>
                     
-                        <input type="owner" class="customer_id" placeholder="Owner">
-                        <input type="label" class="customer_id" placeholder="label">
-                        <textarea type="description" class="description" placeholder="description"></textarea>
+                        <input name="owner-field" id="owner-field" type="owner" class="customer_id" placeholder="Owner">
+                        <input name="label-field" id="label-field" type="label" class="customer_id" placeholder="label">
+                        <textarea name="description-field" id="description-field" type="description" class="description" placeholder="description"></textarea>
                         
                         <div>
-                            <button type="button"><span></span>Send</button>
+                            <button id="btn" name="btn" type="button"><span></span>Send</button>
                         </div>
 
                     </form>
