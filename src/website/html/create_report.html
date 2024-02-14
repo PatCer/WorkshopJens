@@ -18,19 +18,26 @@
                     </ul>
                 </div>
             </div>
-            <div class="content">
-                <h1>CREATE A REPORT</h1>
-            </div>
                 <div class="contact-box">
                     <form>
-                        <input type="text" class="firstname-field" placeholder="First name">
-                        <input type="text" class="lastname-field" placeholder="Last name">
-                        <input type="customerID" class="customer_id" placeholder="Customer ID">
-                        <input type="email" class="input-field" placeholder="Your email">
-                        <textarea type="description" class="description" placeholder="Report description"></textarea>
+                        <div class="radio_btn">
+
+                            <input type="customerID" class="customer_id" placeholder="Customer ID">
+                            <input type="radio" id="feedback" name="kategorie" value="feedback">
+                            <label type="Feedback">Feedback</label>
+                            <input type="radio" id="issue" name="kategorie" value="issue">
+                            <label type="Issue">Issue</label>
+                            <input type="radio" id="question" name="kategorie" value="question">
+                            <label type="question">Question</label>
+                        </div>
+                         <!---KATEGORIE IST EIN SELECT -> Feedback && Issue && Question-->
+                    
+                        <input type="owner" class="customer_id" placeholder="Owner">
+                        <input type="label" class="customer_id" placeholder="label">
+                        <textarea type="description" class="description" placeholder="description"></textarea>
                         
                         <div>
-                            <button type="button"><span></span>Send Report</button>
+                            <button type="button"><span></span>Send</button>
                         </div>
 
                     </form>

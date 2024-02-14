@@ -1,0 +1,30 @@
+Kunden mit Kundennummer regestrieren 
+
+Eingabe für Kundennummer 
+
+Button zum Anmelden 
+
+Kundennummer validieren 
+
+Wenn KN richtig, dann nächste Seite 
+
+Wenn falsch, dann fehlermeldung 
+
+NACH ANMELDUNG: 
+
+Kunde sieht alle offenen Reports und neuste zuerst 
+
+Reports als Kachel, nur wichtigesten Infos auf ersten Blick
+
+Innerhalb von Kachel alle Infos 
+
+Kunde soll kachel filtern, z.b. nach status/label 
+
+Abmelden mit KN 
+
+Beim erstellen eines Reps --> mögl. Bug,Feedback oder Frage
+
+Detailseite: nur menü, ohne toolbar 
+Kunde bekommt nur: Rep ID, KN, aktueller Status, Begründung wieso geschlossen, alle Kommentare, Kommentare Chronologisch sortiert
+
+Kunde kann kommentar schreiben, kann rep schließen ohne Begründung 
