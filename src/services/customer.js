@@ -1,16 +1,3 @@
-import Fastify from 'fastify'
-import cors from '@fastify/cors'
-
-const fastify = Fastify({
-  logger: true
-})
-
-fastify.register(cors, {
-  origin: '*'
-});
-
-
-
 class Customer{
     constructor(firstName,lastName,email,customerId){
         this.firstName = firstName;
@@ -20,15 +7,15 @@ class Customer{
     }
 };
 
-const customers = [];
+export const customers = [];
 
-function getCustomers(customers){
+export function getCustomers(customers){
     customers.forEach(customer => {
         console.log(customer);
     });
 };
 
-function createCustomer(firstname,lastname,email,customerId){
+export function createCustomer(firstname,lastname,email,customerId){
     if (validateCustomerId(customerId,customers)){  
         const customer = new Customer(firstname,lastname,email,customerId);
         customers.push(customer);
@@ -39,16 +26,16 @@ function createCustomer(firstname,lastname,email,customerId){
     }
 };
 
-function getCustomer(customerId, customers){
+export function getCustomer(customerId, customers){
     return customers.filter((Customer) => Customer.customerId === customerId);
 };
 
-function deleteCustomer(customerId,customers){
+export function deleteCustomer(customerId,customers){
     const element = getCustomer(customerId, customers);
     customers.splice(element, 1);
 };
 
-function validateCustomerId(customerId, customers){
+export function validateCustomerId(customerId, customers){
     const pattern = /ETUR-CN-\w+/;
     const isValid = pattern.test(customerId);
     if (isValid){
@@ -64,7 +51,7 @@ function validateCustomerId(customerId, customers){
 createCustomer("harry","harrald","beispiel@mail.de","ETUR-CN-34622");
 createCustomer("harry2","harrald","beispiel@mail.de","ETUR-CN-34623");
 
-const customerSchema = {
+export const customerSchema = {
     schema: {
       body: {
         type: 'object',
@@ -81,7 +68,7 @@ const customerSchema = {
 
 
 
-const responseArraySchema = {
+export const responseArraySchema = {
     schema: {
       response: {
         200: {
@@ -99,43 +86,3 @@ const responseArraySchema = {
       }
     }
   }
-
-
-export {getCustomers, getCustomer, createCustomer, deleteCustomer, customers};
-
-export async function routes (fastify, options) {
-    fastify.get('/', async (request, reply) => {
-    });
-  }
-
-
-
-// Declare a route
-fastify.get('/customers',responseArraySchema , async function getCustomers (request, reply) {
-    return customers;
-  })
-fastify.get('/customers/:Id', async (request, reply ) => {  
-    return getCustomer(request.params.Id, customers);
-})
-fastify.post('/customers', customerSchema, async function createCustomers (request, reply){
-    try{
-        createCustomer(request.body.firstname,request.body.lastname,request.body.email,request.body.customerId)    
-    }
-    catch{
-        reply.statusCode = 400
-        return 'CustomerId is in wrong or already exsists'
-    }
-})
-fastify.delete('/customers/:id', async function deleteCustomers (request, reply){
-    const { id } = request.params;
-    return deleteCustomer(id,customers);
-})
-  
-  // Other code...
-fastify.register(routes);
-try {
-    await fastify.listen({ port: 3000 })
-} catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-}
