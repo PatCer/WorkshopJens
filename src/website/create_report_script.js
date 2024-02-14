@@ -1,15 +1,15 @@
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
     const submitButton = document.getElementById('btn');
     submitButton.addEventListener('click', () => {
-        const form = document.getElementById("formid");
-        createCustomer(form);
+        const form = document.querySelector("form");
+        createReport(form);
     })
 });
-       
-async function createCustomer(form){
+
+async function createReport(form){
     const formData = new FormData(form);
     const data = {
-        "category": formData.get("category-field"),
+        "category": getSelectedRadioButtonValue(form.elements['category-field']),
         "customerId": formData.get("customerId-field"),
         "description": formData.get("description-field"),
         "labels": formData.get("label-field").split(","),
@@ -23,5 +23,15 @@ async function createCustomer(form){
         body: JSON.stringify(data),
     });
 }
+
+function getSelectedRadioButtonValue(radioButton) {
+    for (const rb of radioButton) {
+        if (rb.checked) {
+            return rb.value;
+        }
+    }
+    return null;
+}
+
 //form id = formid
 //button id = btn
