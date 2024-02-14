@@ -25,10 +25,7 @@ function generateRandomId() {
     let randomId = '';
   
     for (let i = 0; i < 4; i++) {
-      // Choose a random character from the 'characters' string
       const randomChar = characters.charAt(Math.floor(Math.random() * characters.length));
-  
-      // Append the random character to the ID
       randomId += randomChar;
     }
   
