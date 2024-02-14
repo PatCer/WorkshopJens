@@ -105,13 +105,13 @@ export const customerSchema = {
 const comments = []
 const comments2 = []
 const comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
-comment.push(comment);
-comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
-comment.push(comment);
-comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
-comment2.push(comment);
-comment = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
-comment2.push(comment);
+comments.push(comment);
+const comment2 = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
+comments.push(comment2);
+const comment3 = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
+comments2.push(comment3);
+const comment4 = new Comment('Patrik','Sehr Kaputt','11.12.2024', 'dev comment')
+comments2.push(comment4);
 
 const report = new Report(1,'Bug', 'ETUR-CN-34623', 'hallo, alles kaputt', ['drei lable'],'me' , 'Patrik', 'jetzt', 'Jetzt plus 5 min', 'noch nicht', 'in Bearbeitung', 1, comments, 'none', ['wikipedia.de/idunno']);
 const report2 = new Report(3,'Bug2', 'ETUR-CN-34623', 'hallo, alles kaputt', ['zwei lable'],'me' , 'Patrik', 'jetzt', 'Jetzt plus 5 min', 'noch nicht', 'in Bearbeitung', 1, comments2, 'none', ['wikipedia.de/idunno']);

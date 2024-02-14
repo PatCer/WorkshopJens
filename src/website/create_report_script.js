@@ -12,7 +12,7 @@ async function createCustomer(form){
         "category": formData.get("category-field"),
         "customerId": formData.get("customerId-field"),
         "description": formData.get("description-field"),
-        "labels": formData.get("labels-field").split(","),
+        "labels": formData.get("label-field").split(","),
         "owner": formData.get("owner-field"),
     };
     fetch("http://localhost:3000/report",{
