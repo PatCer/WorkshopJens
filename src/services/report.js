@@ -42,14 +42,14 @@ function generateRandomId() {
 }
 
 export function createNewReport(category, customerId, description, labels, owner, state, references){
-    do{
-        const id = generateRandomId();
-        if (reports.some((Report) => Report.id === id)){
-            const report = new Report(id,category, customerId, description, labels, owner,'-',new Date(),'-','-',state,'-',['-'],'-',references);
-            reports.push(report);
-            return
-        }
-    }while(true)
+    const id = generateRandomId();
+    if (reports.some((Report) => Report.id === id)){       
+    }
+    else{
+        const report = new Report(id,category, customerId, description, labels, owner,'-',new Date(),'-','-',state,'-',['-'],'-',references);
+        reports.push(report);
+        return
+    }
 }
 
 export function changeReport(id ,labels ,assignedTo ,state, priority, comments, closeReason, references){   

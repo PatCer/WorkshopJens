@@ -56,7 +56,8 @@ fastify.get('/report/assignedTo/:assignedTo', async (request, reply) =>{
     return getReport(request.params.assignedTo);
 })
 fastify.post('/report', async (request,reply) =>{  
-    createNewReport();
+    const data = request.body;
+    createNewReport(data.category,data.customerId, data.description, data.labels,data.owner,data.stat,data.references);
 })
 fastify.delete('/report/:id',async (request,reply)=>{
     const { id } = request.params;
