@@ -106,52 +106,60 @@ form
 {
     margin: 35px; 
 }
-.radio_btn{
+.radio_btn {
   font-size: 14px;
-    position: relative;
-  
-  }
-  
-  label{
-    background-color: #ffffffc5;
-    width: 48.5%; 
-    height: 30px;
-    margin-top: 20px;
-    padding-left: 10px;
-    border: 1px solid #777;
-    border-radius: 14px;
-    outline: none;   
-    position: relative;
-    color: rgba(73, 73, 73, 0.762);
-    font-family: sans-serif;
-    display: flex;
-    align-items: center;
-  }
-  label:before{
-    content: "";
-    height: 10px;
-    width: 10px;
-    border: 2px solid orangered;
-    border-radius: 50%;
-    margin-right: 20px;
-  
-  }
-  
-  input[type="radio"]:checked + label{
-    background-color: orangered;
-    color:black; 
-  
-  }
+  position: relative;
+}
 
-  input[type="radio"]:checked + label::before{
-    height: 16px;
-    width: 16px;
-    background-color: black;
-  }
-  
+label {
+  background-color: #ffffffc5;
+  width: 48.5%;
+  height: 30px;
+  margin-top: 20px;
+  padding-left: 10px;
+  border: 1px solid #777;
+  border-radius: 14px;
+  outline: none;
+  position: relative;
+  color: rgba(73, 73, 73, 0.762);
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-  
+label:before {
+  content: "";
+  height: 16px;
+  width: 16px;
+  border: 2px solid orangered;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
 
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  background-color: orangered;
+  color: black;
+}
+
+input[type="radio"]:checked + label::before {
+  background-color: black;
+  border-color: black;
+}
+
+input[type="radio"]:active + label {
+  background-color: orangered;
+  color: black;
+}
+
+input[type="radio"]:active + label::before {
+  background-color: black;
+}
 
 .customer_id{
     background-color: #ffffffc5;
